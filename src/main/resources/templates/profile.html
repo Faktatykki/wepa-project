@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Someone's profile</title>
+        <meta charset="UTF-8"></meta>
+    </head>
+    
+    <body>
+       
+ 
+        <div th:replace="components :: navigation">
+        </div>
+        
+        <hr>
+            
+        <div>
+            <h2 th:text="${name}"></h2>
+        </div>
+        <div th:if="${!checkIfFriends}">
+                <div th:if="${!checkIfRequest}">
+                    <form class="button" th:action="@{/Users/} + ${userUrl}" method="POST">
+                        <input type="submit" value="Add friend"/>
+                    </form>
+                </div>
+            </div>
+        <br/><a th:href="@{/Users/pictures/} + ${userUrl}">Picture album</a><br/>
+        <p><b>Profile picture</b></p>
+                <img th:src="${profilepicture} == null ? _ : @{'data:image/png;base64,'+${profilepicture}}" width="400" height="400"/>
+            <br></br>
+            
+        <hr/>
+        
+            <div>
+                
+                <h2>Wall</h2>
+                
+                    <div>
+                        <form class="button" th:action="@{/Users/sendmessage/} + ${userUrl}" method="POST">
+                        <input type="text" name="send" id="sendMessage"/>
+                            <input type="submit" value="Send"/>
+                        </form>
+                        <h3>Look what they did to this wall..</h3>
+                    </div>
+                <div th:each="message : ${messages}">
+                    <b>MESSAGE</b>
+                    <p></p>
+                    <b> Sender: </b>  <a th:text="${message.messSender.name}"></a>
+                    <b> Time: </b>  <a th:text="${message.timestamp}"></a>
+                    <p> Likes: <a th:text="${message.getLikes().size()}"></a></p>
+                    
+                    <p></p>
+                    
+                    <p th:text="${message.content}"></p>
+                    
+                    <form class="button" th:action="@{/Users/likemessage/{messageId}(messageId=${message.id})}" method="POST">
+                        <input type="submit" value="LIKE"/>
+                    </form>
+ 
+                    <p></p>
+                    
+                    <div th:each="comment : ${message.getComments()}">
+                        <small th:text="${comment.sender.name}"></small><small> commented</small>
+                        <small th:text="${comment.timestamp}"></small>
+                        <small><p th:text="${comment.content}"></p></small>
+                    </div>
+                    
+                    <form class="button" th:action="@{/Users/commentmessage/{messageId}(messageId=${message.id})}" method="POST">
+                        <input type="text" name="send" id="sendComment"/>
+                            <input type="submit" value="Comment"/>
+                    </form>
+                    
+                    <hr>
+                </div>
+                
+            
+            </div>
+        
+        
+        
+        <br></br>
+        <div th:replace="components :: footer">
+        </div>
+    </body>
+</html>

@@ -1,0 +1,35 @@
+ <!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Good ol' Social Call</title>
+    </head>
+    <body>
+        
+            <div>
+                <h1>Good ol' Mugnovel</h1>
+            </div>
+                
+               <div id="main"> 
+                    <h2>Sign Up for Good ol' Mugnovel</h2>
+                    <a th:href="@{/welcome}">Go back</a>
+                    <form th:action="@{/register}" method="POST">
+                        <p><b>(Your username)</b></p>
+                        Name: <input type="text" name="name" id="name" th:required="required"/><br/>
+                        <p><b>(Your unique 'nickname' for user identification)</b></p>
+                        User URL: <input type="text" name="userURL" id="userURL" th:required="required"/><br/>
+                        <p><b>(Your password)</b></p>
+                        Password: <input type="password" name="password" id="password" th:required="required"/><br/>
+                        <p><b>(Your password again, better get it right)</b></p>
+                        Password again: <input type="password" name="passwordAgain" id="passwordAgain" th:required="required"/><br/>
+                        <br/>
+                        <input type="submit"/>
+                    </form>
+                    <br/>
+                </div> 
+                
+            <div th:replace="components :: footer">
+                </div>
+        
+    </body>
+</html>

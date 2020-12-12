@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Welcome to MugNovel!</title>
+        <meta charset="UTF-8"/>
+    </head>
+    <body>
+        
+        <h1>Welcome to MugNovel</h1>
+        <div id="register">
+            <h2>Sign Up for 'Good ol' MugNovel!</h2>
+            <a th:href="@{/register}">Register here!</a><br/>
+        </div>
+        
+        <div>
+            <h2>Or are you already a seasoned mugnoveler?</h2>
+            <a th:href="@{/home}">Sign in here!</a><br/>
+        </div>
+        <p></p>
+       
+        <div th:replace="components :: footer">
+        </div>
+        
+    </body>
+</html>

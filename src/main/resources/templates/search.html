@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Search</title>
+        <meta charset="UTF-8"></meta>
+    </head>
+    
+    <body>
+    <div th:replace="components :: navigation">
+    </div>
+        
+        <hr>
+            
+    <h2>Search for users</h2>
+    <a th:href="@{/home}">Go back</a>
+    <br></br>
+    <form th:object="${account}" th:action="@{/Users}" method="GET">
+        <input type="text" name="search" id="search"z/>
+        <input type="submit" value="Search"/>
+        <div>
+            <h2>Results</h2>
+            
+                
+                  
+                
+                <div th:each="account : ${search}">
+                    <b>Name: </b>
+                    <a th:href="@{/Users/{userUrl}(userUrl=${account.userUrl})}" th:text="${account.name}"></a>
+                    <b>A.K.A: </b>
+                    <a th:text="${account.userUrl}"></a>
+                    <p></p>
+                </div>
+            
+        </div>
+    </form>
+    
+    <hr>
+        
+    <div th:replace="components :: footer">
+        </div>
+    </body>
+</html>

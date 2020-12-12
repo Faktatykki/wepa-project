@@ -1,0 +1,22 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Accidents happen</title>
+    </head>
+    <body>
+        
+        <h2>Something peculiar happened</h2>
+        <p>Name or user url might be taken. Passwords must match as well! Focus!</p>
+        
+        <p></p>
+        
+         <a th:href="@{/register}">Let's give it another shot</a><br/>
+         
+         <p></p>
+         
+         <hr>
+         
+             <div th:replace="components :: footer">
+             </div>
+    </body>
+</html>

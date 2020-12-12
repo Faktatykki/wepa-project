@@ -1,0 +1,37 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Sign in</title>
+    </head>
+    <body>     
+        <div id="container">
+             
+            <h1>Come on in!</h1><br/>
+            <a th:href="@{/welcome}">Go back</a>
+            
+            <p></p>
+            
+            <div th:if="${param.error}">
+                <b>Invalid username or password</b>
+            </div>
+            
+            <div th:if="${param.logout}">
+                <b>You have been logged out</b>
+            </div>
+            
+            <form th:action="@{/login}" method="POST">
+                <br></br>
+                <label><b>Username, NOW!</b></label><br/>
+                <input type="text" name="username" id="name" th:required="required" th:autofocus="autofocus"/><br/>
+                <br></br>
+                <label><b>Password, god damn it</b></label><br/>
+                <input type="password" name="password" id="password" th:required="required"/><br/>
+                <p></p>
+                <input type="submit"/>
+            </form>  
+        </div>
+            
+        <div th:replace="components :: footer">
+        </div>
+    </body>
+</html>

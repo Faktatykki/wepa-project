@@ -1,0 +1,19 @@
+ <!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Successful enrollment!</title>
+    </head>
+    <body>
+        
+        <div>
+            <h2>Succesful enrollment! Now you can go sign in!</h2>
+            <a th:href="@{home}">Sign in</a><br/>
+        </div>
+        
+        <p></p>
+        <div th:replace="components :: footer">
+        </div>
+        
+    </body>
+</html>

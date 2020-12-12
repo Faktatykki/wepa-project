@@ -1,0 +1,20 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8"/>
+       
+    </head>
+    <body>
+        <div th:fragment="navigation">
+            <a th:href="@{/home}">Home</a><br/>
+            <a th:href="@{/home/pictures}">My picture album</a><br/>
+            <a th:href="@{/Users}">Search for users</a><br/>
+            <a th:href="@{/logout}">Logout</a><br/>
+        </div>
+        
+        <footer th:fragment="footer">
+                Copyright &copy; 2020 Sampo Kääriäinen
+        </footer>
+    </body>
+</html>

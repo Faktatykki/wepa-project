@@ -46,10 +46,10 @@ public class PictureFile extends AbstractPersistable<Long> {
     private String description;
     
     //cascadet tänne jos kusee
-    @OneToMany(mappedBy = "fo")
+    @OneToMany(mappedBy = "fo", cascade = CascadeType.ALL)
     List<PictureComment> comments = new ArrayList<>();
     
-    @OneToMany(mappedBy = "picture")
+    @OneToMany(mappedBy = "picture", cascade = CascadeType.ALL)
     List<PictureLike> likes = new ArrayList<>();
     
     @Basic

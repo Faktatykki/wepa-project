@@ -2,12 +2,13 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
     <head>
+        <meta charset="UTF-8" />
         <title>Welcome to MugNovel!</title>
-        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     </head>
     <body>
         
-        <h1>Welcome to MugNovel</h1>
+        <h1 class="cell">Welcome to MugNovel</h1>
         <div id="register">
             <h2>Sign Up for 'Good ol' MugNovel!</h2>
             <a th:href="@{/register}">Register here!</a><br/>
@@ -17,6 +18,7 @@
             <h2>Or are you already a seasoned mugnoveler?</h2>
             <a th:href="@{/home}">Sign in here!</a><br/>
         </div>
+        
         <p></p>
        
         <div th:replace="components :: footer">

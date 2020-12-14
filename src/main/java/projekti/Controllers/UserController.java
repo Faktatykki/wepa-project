@@ -50,7 +50,7 @@ public class UserController {
             return "redirect:/home";
         }
         
-        model.addAttribute("name", "You're viewing profile of '" + profilename + "'");
+        model.addAttribute("name", "You're viewing the profile of '" + profilename + "'");
         
         model.addAttribute("profilepicture", picSer.getProfilePicture(profileYoureWatching));
         

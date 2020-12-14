@@ -2,8 +2,9 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
     <head>
+        <meta charset="UTF-8" />
         <title>MugNovel</title>
-        <meta charset="UTF-8"></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     </head>
     
     <body>
@@ -20,13 +21,14 @@
             <h2 th:text="${name}">You're logged in</h2>
         </div>
         <div>
+         
+                <a th:href="@{/home/pictures}">Go change your picture album</a>
+                <br></br>
             
             <p><b>Profile picture</b></p>
                 <img th:src="${profilepicture} == null ? _ : @{'data:image/png;base64,'+${profilepicture}}" width="400" height="400"/>
                 
-                <br></br>
-                <a th:href="@{/home/pictures}">Picture album</a>
-                <br></br>
+                
             
                 <div th:if="${checkIfRequests}">
                     <h2>These people want you!</h2>
@@ -69,7 +71,7 @@
                     <div>             
                         <form class="button" th:action="@{/home}" method="POST">
                             <input type="text" name="send" id="sendMessage"/>
-                                <input type="submit" value="Send"/>
+                                <input type="submit" value="Write on wall"/>
                         </form>
                         <h3>Look what they did to your wall..</h3>
                     </div>   

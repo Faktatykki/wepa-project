@@ -43,7 +43,7 @@ public class RegisterService {
         return false;
     }
     
-    //I did this in the very beginning (the whole password check etc.) and I know this is not really efficient
+    //I did this in the very beginning (the whole password check etc.) and I know this is not the most efficient way
     private boolean registeringOk(String name, String userUrl, String password, String passwordAgain) {
         
         if(!checkForEmptyParameters(name, userUrl, password, passwordAgain)) {

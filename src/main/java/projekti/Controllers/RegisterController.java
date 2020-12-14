@@ -13,9 +13,6 @@ import projekti.Services.RegisterService;
 public class RegisterController {
     
     @Autowired
-    private AccountRepository acRep;
-    
-    @Autowired
     private RegisterService regSer;
     
     @GetMapping("/register")
@@ -29,9 +26,11 @@ public class RegisterController {
                            @RequestParam String password,
                            @RequestParam String passwordAgain) {
         
-       if(regSer.register(name, userURL, password, passwordAgain)) {
+        //this is kinda clumsy way of doing things, but it was made in very early stage
+        //so it is what it is, but works
+        if(regSer.register(name, userURL, password, passwordAgain)) {
            return "redirect:/successReg";
-       }
+        }
         
         return "redirect:/failreg";
     }

@@ -11,14 +11,19 @@
     <div th:replace="components :: navigation">
     </div>
         
+     
         <hr>
+        
+        <div>
+            <h2>Search for users</h2>
+            <a th:href="@{/home}">Go back</a>
+            <br></br>
+            <form th:object="${account}" th:action="@{/Users}" method="GET">
+                <input type="text" name="search" id="search"z/>
+                <input type="submit" value="Search"/>
+                <p><small>Tip: just push "Search" to list all users</small></p>
+         </div>
             
-    <h2>Search for users</h2>
-    <a th:href="@{/home}">Go back</a>
-    <br></br>
-    <form th:object="${account}" th:action="@{/Users}" method="GET">
-        <input type="text" name="search" id="search"z/>
-        <input type="submit" value="Search"/>
         <div>
             <h2>Results</h2>
             

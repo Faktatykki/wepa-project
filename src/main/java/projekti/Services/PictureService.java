@@ -91,7 +91,6 @@ public class PictureService {
         PictureFile picture = picRep.getOne(id);
         
         if(picture.getComments().size() >= 10) {
-            System.out.println("HALOO");
             PictureComment pc = picture.getComments().get(0);
             picCommRep.delete(pc);
         }
